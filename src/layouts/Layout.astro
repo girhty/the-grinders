@@ -1,0 +1,104 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = "The Grinders — Grind & unwind. Specialty coffee, seasonal drinks, and cozy vibes across Iraq." } = Astro.props;
+const profilePic = "https://scontent-ams2-1.cdninstagram.com/v/t51.82787-19/656216577_18100503692477046_5261369959079597664_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=110&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=USdBp7sina8Q7kNvwGXfOyc&_nc_oc=Ado723nZb_3bnKJskV-WVqh0SLGwRrp4hWJWa3Hdl9rWRSMC6pfIM8qLKbUiQb5SRjA&_nc_zt=24&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=H4icF26rXpkF8u4oQKiM1g&_nc_ss=7ba8c&oh=00_AQJMOX83crta65WQYvTEIFviKBkGQsJi3z2s-M3i0WPMWQ&oe=6ABCCB73";
+---
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#1f140d" />
+    <link rel="icon" type="image/jpeg" href={profilePic} />
+    <link rel="apple-touch-icon" href={profilePic} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={profilePic} />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-espresso-900 text-cream-100 font-sans antialiased selection:bg-amber-400 selection:text-espresso-900">
+    <div class="fixed inset-0 -z-10 bg-noise pointer-events-none"></div>
+    <slot />
+    <script>
+      // Scroll reveal
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+      // Magnetic buttons
+      document.querySelectorAll('.magnetic').forEach((btn) => {
+        btn.addEventListener('mousemove', (e) => {
+          const r = btn.getBoundingClientRect();
+          const x = e.clientX - r.left - r.width / 2;
+          const y = e.clientY - r.top - r.height / 2;
+          btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = 'translate(0,0)';
+        });
+      });
+
+      // Parallax blobs
+      const blobs = document.querySelectorAll('[data-parallax]');
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        blobs.forEach((b) => {
+          const speed = parseFloat(b.getAttribute('data-parallax')) || 0.1;
+          b.style.transform = `translateY(${y * speed}px)`;
+        });
+      });
+
+      // Mobile nav toggle
+      const navToggle = document.getElementById('nav-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      navToggle?.addEventListener('click', () => {
+        mobileMenu?.classList.toggle('hidden');
+      });
+    </script>
+    <style>
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-stagger > * {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.05s; opacity:1; transform: translateY(0); }
+      .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.15s; opacity:1; transform: translateY(0); }
+      .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.25s; opacity:1; transform: translateY(0); }
+      .reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.35s; opacity:1; transform: translateY(0); }
+      .reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.45s; opacity:1; transform: translateY(0); }
+      .reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.55s; opacity:1; transform: translateY(0); }
+      .reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 0.65s; opacity:1; transform: translateY(0); }
+      .reveal-stagger.is-visible > *:nth-child(8) { transition-delay: 0.75s; opacity:1; transform: translateY(0); }
+      .reveal-stagger.is-visible > *:nth-child(9) { transition-delay: 0.85s; opacity:1; transform: translateY(0); }
+      .reveal-stagger.is-visible > *:nth-child(10) { transition-delay: 0.95s; opacity:1; transform: translateY(0); }
+      html { scroll-behavior: smooth; }
+      ::-webkit-scrollbar { width: 10px; }
+      ::-webkit-scrollbar-track { background: #1f140d; }
+      ::-webkit-scrollbar-thumb { background: #a97540; border-radius: 8px; }
+    </style>
+  </body>
+</html>

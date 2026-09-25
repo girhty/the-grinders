@@ -1,0 +1,52 @@
+---
+const profilePic = "https://scontent-ams2-1.cdninstagram.com/v/t51.82787-19/656216577_18100503692477046_5261369959079597664_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=110&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=USdBp7sina8Q7kNvwGXfOyc&_nc_oc=Ado723nZb_3bnKJskV-WVqh0SLGwRrp4hWJWa3Hdl9rWRSMC6pfIM8qLKbUiQb5SRjA&_nc_zt=24&_nc_ht=scontent-ams2-1.cdninstagram.com&_nc_gid=H4icF26rXpkF8u4oQKiM1g&_nc_ss=7ba8c&oh=00_AQJMOX83crta65WQYvTEIFviKBkGQsJi3z2s-M3i0WPMWQ&oe=6ABCCB73";
+const year = new Date().getFullYear();
+---
+<footer class="relative border-t border-white/10 bg-espresso-950/80 pt-16 pb-8 px-5 sm:px-8">
+  <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+    <div>
+      <a href="#" class="flex items-center gap-3 mb-4">
+        <img src={profilePic} alt="The Grinders logo" class="w-11 h-11 rounded-full object-cover ring-2 ring-amber-400/50" />
+        <div>
+          <p class="font-display text-lg text-cream-50">The Grinders</p>
+          <p class="text-xs text-amber-300/70 tracking-wide">Grind &amp; Unwind</p>
+        </div>
+      </a>
+      <p class="text-sm text-cream-200/60 leading-relaxed">Specialty coffee &amp; cozy vibes, brewed across Iraq — Basra, Baghdad, and Erbil.</p>
+    </div>
+
+    <div>
+      <p class="text-cream-50 font-semibold mb-4 text-sm uppercase tracking-wide">Explore</p>
+      <ul class="space-y-2 text-sm text-cream-200/60">
+        <li><a href="#gallery" class="hover:text-amber-300 transition">Gallery</a></li>
+        <li><a href="#menu" class="hover:text-amber-300 transition">Seasonal Menu</a></li>
+        <li><a href="#reviews" class="hover:text-amber-300 transition">Community</a></li>
+        <li><a href="#location" class="hover:text-amber-300 transition">Visit Us</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="text-cream-50 font-semibold mb-4 text-sm uppercase tracking-wide">Contact</p>
+      <ul class="space-y-2 text-sm text-cream-200/60">
+        <li>GR98+466, Basrah, Basra Governorate</li>
+        <li>Phone: not listed — DM us on Instagram</li>
+        <li>Open Now · Hours vary by branch</li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="text-cream-50 font-semibold mb-4 text-sm uppercase tracking-wide">Follow</p>
+      <a href="https://instagram.com/grinders.iq" target="_blank" rel="noopener"
+        class="magnetic inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-amber-400 text-espresso-900 font-semibold text-sm shadow-lg shadow-amber-400/20 hover:bg-amber-300 transition-all">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.148-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        @grinders.iq
+      </a>
+      <p class="text-xs text-cream-200/50 mt-3">455K+ followers &amp; growing</p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-cream-200/50">
+    <p>© {year} The Grinders. All rights reserved.</p>
+    <p>Crafted with ☕ for grind &amp; unwind moments.</p>
+  </div>
+</footer>

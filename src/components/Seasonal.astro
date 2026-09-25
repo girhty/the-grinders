@@ -1,0 +1,20 @@
+---
+import Card from "./Card.astro";
+const drinks = [
+  { icon: "🍮", title: "Salted Caramel Latte", subtitle: "لاتيه الكراميل المملح — rich espresso, buttery caramel, a pinch of sea salt." },
+  { icon: "🎃", title: "Pumpkin Spice Latte", subtitle: "لاتيه بتوابل اليقطين — warm spice notes wrapped in velvety milk." },
+  { icon: "🍵", title: "Pumpkin Matcha Cold Foam", subtitle: "ماتشا مع كريمة اليقطين الباردة — earthy matcha topped with pumpkin cold foam." },
+];
+---
+<section id="menu" class="relative py-24 px-5 sm:px-8 max-w-7xl mx-auto">
+  <div class="reveal text-center mb-14 max-w-2xl mx-auto">
+    <span class="text-amber-300 text-xs uppercase tracking-[0.3em]">Limited Time</span>
+    <h2 class="font-display text-4xl sm:text-5xl text-cream-50 mt-3 mb-4">Made Just for Autumn 🍂</h2>
+    <p class="text-cream-200/70">Our seasonal drinks are available across all branches — for a limited time only. Grab yours before it's gone.</p>
+  </div>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
+    {drinks.map((d) => (
+      <Card title={d.title} icon={d.icon} accent={true}>{d.subtitle}</Card>
+    ))}
+  </div>
+</section>
